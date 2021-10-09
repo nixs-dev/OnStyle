@@ -1,0 +1,589 @@
+html {
+    height: 100%;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0ae;
+    border-radius: 100px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,
+            color-stop(.5, rgba(255, 255, 255, .2)),
+            color-stop(.5, transparent), to(transparent));
+}
+
+#mainbackground {
+    background: url("../img/MainBackground.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+
+#dashbackground {
+    background: url("../img/dashBackground.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#postsbackground {
+    background: url("../img/postsBackground.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#profileEditorBackground {
+    background: url("../img/profileEditorBackground.jpeg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+input[type="text"] {
+    border-color: #000000;
+    border-width: 1px;
+    width: 300px;
+}
+
+.adsDiv {
+    background-color: white;
+    width: 90%;
+
+    box-shadow: 10px 5px 5px black;
+    border-radius: 10%;
+
+    padding: 40px;
+}
+
+.mainBar .nav-item {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.mainBar .nav-item a {
+    font-family: beauty;
+    color:rgba(20, 19, 40, 0.544);
+    font-size: 30px;
+    font-weight: 800;
+    border-bottom: 2px outset transparent;
+}
+
+.mainBar .nav-item:hover a {
+    border-bottom: 2px outset #555;
+}
+
+.userOptions {
+    position: fixed;
+    top: 0px;
+    right: 20px;
+}
+
+.userOptions .profilePhoto {
+    position: relative;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.userOptions .profilePhoto img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.userOptions .menu {
+    background-color: white;
+
+    position: absolute;
+    top: 80px;
+    right: -10px;
+    padding: 10px 20px;
+    width: 200px;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.userOptions .menu.active {
+    top: 70px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.userOptions .menu h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0px;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.2em;
+}
+
+.userOptions .menu ul li {
+    list-style: none;
+    padding: 10px 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.userOptions .menu ul li:hover i {
+    opacity: 1;
+}
+
+
+.userOptions .menu ul li i {
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.userOptions .menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.userOptions .menu ul li:hover a {
+    color: #ff5d94;
+    cursor: pointer;
+}
+
+.profileEditor {
+    background-color: white;
+    width: 50%;
+
+    padding: 20px;
+}
+
+.profileEditor .photo {
+    width: 100%;
+
+    position: relative;
+}
+
+.profileEditor .photo img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.profileEditor .photo .edit {
+    position: absolute;
+
+    filter: contrast(200%);
+
+    z-index: -1;
+}
+
+.profileEditor .photo img:hover {
+    opacity: 0.1;
+    filter: brightness(70%);
+
+    cursor: pointer;
+}
+
+.profileEditor .info {
+    margin-bottom: 20px;
+}
+
+.profileEditor .info .pre {
+    font-weight: 500;
+}
+
+.profileEditor .info .data {
+    font-size: small;
+}
+
+.profileEditor .info .itens {
+    position: relative;
+    left: 50px;
+}
+
+.profileEditor .info .itens .unique {
+    position: relative;
+    background-color: #ddfffd;
+    border: solid 1px aqua;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.profileEditor .info .itens .unique i {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    font-size: large;
+}
+
+.profileEditor .info .itens .unique .productName {
+    font-size: medium;
+}
+
+.profileEditor .info .itens .unique .price {
+    font-size: small;
+}
+
+.profileEditor .info .itens .unique .timestamp {
+    font-size: x-small;
+}
+
+#logo {
+    width: 120px;
+    height: 50px;
+}
+
+#welcomeText {
+    color: white;
+
+    border: solid;
+    border-width: 3px;
+    border-color: white;
+    border-radius: 25px;
+
+    padding: 100px;
+}
+
+#welcomeText .title {
+    font-size: 60px;
+}
+
+#welcomeText .description {
+    font-size: 30px;
+}
+
+
+
+footer {
+    background-color: rgb(0, 0, 0);
+
+    text-align: center;
+
+    position: relative;
+    bottom: 0;
+
+    margin-top: 50px;
+    width: 100%;
+
+    box-shadow: inset 0 0 5px white;
+}
+
+footer .goTop {
+    position: relative;
+    bottom: 20px;
+
+    float: right;
+}
+
+footer .end {
+    width: 100%;
+    border-top: outset 1px rgb(184, 184, 184);
+}
+
+footer .end .options {
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+}
+
+footer .end .options ul {
+    list-style: none;
+}
+
+footer .end .options ul li {
+    margin-right: 20px;
+}
+
+footer .end .author {
+    width: 100%;
+    text-align: right;
+
+    font-size: x-large;
+}
+
+footer .content {
+    width: 100%;
+}
+
+footer .content .content-col {
+    list-style: none;
+
+    text-align: left;
+
+    font-size: small;
+
+    border-right: solid 1px #555;
+    padding-right: 40px;
+}
+
+footer .content .content-col li {
+    margin-bottom: 20px;
+}
+
+footer .content .additional-info .contacts {
+    
+}
+
+footer .content .additional-info .ilustration img {
+    width: 150px;
+    height: 250px;
+}
+
+.carousel {
+    width: 200px;
+    height: 200px;
+}
+
+.imgSlider {
+    width: 200px;
+    height: 200px;
+} 
+
+.menu-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    background-color: rgb(20, 20, 20);
+    box-shadow: inset 0 0 0.3em white;
+
+    border: ridge 3mm;
+}
+
+.menu-products .search {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    height: 20%;
+}
+
+.menu-products .title {
+    font-family: beauty;
+    font-size: xx-large;
+    color: white;
+}
+
+.menu-products .search input {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.menu-products .filters {
+    color: white;
+}
+
+.menu-products .dropdown {
+    align-self: flex-end;
+    margin-right: 40px;
+}
+
+.menu-products .dropdown .dropdown-item a {
+    text-decoration: none;
+}
+
+#products {
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+
+}
+
+.product {
+    min-width: 250px;
+    color: white;
+}
+
+.product .card-header {
+    background-color: black;
+
+    box-shadow: inset 0 0 5px white;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.product .card-body {
+    background-color: white;
+
+    box-shadow: inset 0 0 5px white;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product .card-footer {
+    background-color: black;
+
+    box-shadow: inset 0 0 5px white;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.listControllers .left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    transform: translate(0, -50%);
+}
+
+.listControllers .right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+
+    transform: translate(0, -50%);
+}
+
+#accessOptions {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+}
+
+.list-group {
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.centered-div {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.closeFrame {
+    width: 30px;
+    height: 30px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.important {
+    background-color: green;
+}
+
+
+#ad {
+    width: 70%;
+    height: 100%;
+}
+
+.btn-group-xs>.btn,
+.btn-xs {
+    padding: .100rem .100rem;
+    font-size: .875rem;
+    line-height: .5;
+    border-radius: .2rem;
+}
+
+.blur {
+    backdrop-filter: blur(5px);
+}
+
+#brand { 
+    padding: 2px;
+}
+
+.spinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.passwordInput {
+    position: relative;
+    width: 200px;
+}
+
+.passwordInput input {
+    width: 200px;
+}
+
+.passwordInput i {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    padding: 9px 8px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.extra-info {
+    width: 100%;
+    background-color: #000000;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    padding: 50px;
+}
+
+.extra-info .item {
+    border: ridge 1mm;
+    width: 20%;
+
+    padding: 10px;
+    color: white;
+
+    margin-right: 20px;
+    margin-left: 20px;
+    
+    cursor: pointer;
+}
+
+.extra-info .item img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+}

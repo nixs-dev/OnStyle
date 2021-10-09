@@ -1,0 +1,8 @@
+@font-face {
+    font-family: beauty;
+    src: url('/fonts/shelter.ttf');
+}
+
+.beauty-font {
+    font-family: beauty;
+}
