@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class AdmController extends Controller
 {
-    public $storagePath = '/storage/products-photos/';
+    public static $storagePath = '/storage/products-photos/';
 
-    public function getRandomString()
+    public static function getRandomString()
     {
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         $string = '';
@@ -24,7 +24,7 @@ class AdmController extends Controller
         return $string;
     }
 
-    public function addToDatabase(Request $request)
+    public static function addToDatabase(Request $request)
     {
 
         $request->validate([
@@ -33,22 +33,22 @@ class AdmController extends Controller
             'price' => 'required|numeric'
         ]);
 
-        $productFolder = $this->getRandomString() . '/';
+        $productFolder = self::getRandomString() . '/';
 
         if ($request->first_photo_url !== NULL) {
             Storage::disk('public')->put('products-photos/' . $productFolder, $request->first_photo_url);
-            $request->first_photo_url = $this->storagePath . $productFolder . $request->first_photo_url->hashName();
+            $request->first_photo_url = self::$storagePath . $productFolder . $request->first_photo_url->hashName();
         } else {
             return 'Anexe pelo menos uma foto do seu produto!';
         }
 
         if ($request->second_photo_url !== NULL) {
             Storage::disk('public')->put('products-photos/' . $productFolder, $request->second_photo_url);
-            $request->second_photo_url = $this->storagePath . $productFolder . $request->second_photo_url->hashName();
+            $request->second_photo_url = self::$storagePath . $productFolder . $request->second_photo_url->hashName();
         }
         if ($request->third_photo_url !== NULL) {
             Storage::disk('public')->put('products-photos/' . $productFolder, $request->third_photo_url);
-            $request->third_photo_url = $this->storagePath . $productFolder . $request->third_photo_url->hashName();
+            $request->third_photo_url = self::$storagePath . $productFolder . $request->third_photo_url->hashName();
         }
 
         $product = new Product;
@@ -70,7 +70,7 @@ class AdmController extends Controller
         }
     }
 
-    public function deleteFromDatabase(Request $request)
+    public static function deleteFromDatabase(Request $request)
     {
         $product = Product::where('id', '=', $request->id)->first();
 
@@ -82,16 +82,16 @@ class AdmController extends Controller
         return json_encode('success');
     }
 
-	public function search($name)
+	public static function search($name)
     {
         $products = Product::where('name', 'LIKE', $name . '%')->get();
 
         return $products;
     }
 
-	public function getAllFromDatabase(Request $request) {
+	public static function getAllFromDatabase(Request $request) {
         if (!is_null($request->key)) {
-            $products = $this->search($request->key);
+            $products = self::search($request->key);
         } else {
             $products = Product::all();
         }

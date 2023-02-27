@@ -36,7 +36,8 @@ class admCheck
             }
         }
 
-        $response = "Impossível realizar sua requisição";
+        $response = Encryptor::decrypt($receivedCode, $key);
+        
         return response()->json($response);
     }
 
