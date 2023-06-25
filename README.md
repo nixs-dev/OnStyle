@@ -3,23 +3,23 @@
 
 Welcome Page
 
-![index](https://user-images.githubusercontent.com/57874746/221682487-11b89162-b5e7-4d16-b3c2-8590139d90cf.png)
+![index](/readme/index.png)
 
 User Profile
 
-![profile](https://user-images.githubusercontent.com/57874746/221682544-92fb0df1-8f3e-4934-97cc-4ce13bbab601.png)
+![profile](/readme/profile.png)
 
 Home
 
-![home](https://user-images.githubusercontent.com/57874746/221682559-3372b23d-4f2b-45df-9010-d90165caee13.png)
+![home](/readme/home.png)
 
 Products
 
-![products](https://user-images.githubusercontent.com/57874746/221682725-e978e60e-ba95-4a20-947e-b808cedff21e.png)
+![products](/readme/products.png)
 
 Auth
 
-![auth](https://user-images.githubusercontent.com/57874746/221682566-40c9be8e-b57d-4e31-92d1-7801e0605bd1.png)
+![auth](/readme/auth.png)
 
 
 # Getting started

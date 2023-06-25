@@ -50,7 +50,7 @@
                                 <img src="../img/userIcon.png">
                             </div>
                             <div class="menu">
-                                <h3>Nome</h3>
+                                <h3><?php echo e($User['name']); ?></h3>
                                 <ul>
                                     <li><a href="#" onclick="window.location = 'profile';">Meu perfil</a></li>
                                     <li><a href="#" onclick="window.location = '/auth/logout';">Sair</a></li>

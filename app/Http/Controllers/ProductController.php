@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -178,7 +179,7 @@ class ProductController extends Controller
             $products = Product::all();
         }
 
-        return view('products', ['products' => $products]);
+        return view('products', ['User' => User::where('id', '=', session('LoggedUser'))->first(), 'products' => $products]);
     }
 
     public function getPrice($id)

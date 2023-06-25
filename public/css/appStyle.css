@@ -66,7 +66,7 @@ input[type="text"] {
     width: 90%;
 
     box-shadow: 10px 5px 5px black;
-    border-radius: 10%;
+    border-radius: 1rem;
 
     padding: 40px;
 }
@@ -262,8 +262,8 @@ input[type="text"] {
 }
 
 #logo {
-    width: 120px;
-    height: 50px;
+    width: 3rem;
+    height: auto;
 }
 
 #welcomeText {
@@ -351,10 +351,6 @@ footer .content .content-col {
 
 footer .content .content-col li {
     margin-bottom: 20px;
-}
-
-footer .content .additional-info .contacts {
-    
 }
 
 footer .content .additional-info .ilustration img {

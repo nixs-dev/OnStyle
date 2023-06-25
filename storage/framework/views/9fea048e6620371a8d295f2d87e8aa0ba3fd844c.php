@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
     <title>Produtos</title>
 
@@ -50,7 +50,7 @@
                                 <img src="../img/userIcon.png">
                             </div>
                             <div class="menu">
-                                <h3>{{ $User['name'] }}</h3>
+                                <h3><?php echo e($User['name']); ?></h3>
                                 <ul>
                                     <li><a href="#" onclick="window.location = 'profile';">Meu perfil</a></li>
                                     <li><a href="#" onclick="window.location = '/auth/logout';">Sair</a></li>
@@ -90,36 +90,37 @@
                 </div>
             </div>
 
-            @include('components.cart')           
+            <?php echo $__env->make('components.cart', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>           
         </div>
     </div>
 
     <div id="products" class="mt-5 overflow-hidden">
-        @foreach($products as $product)
+        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="card product mx-2" id="product">
                 <div class="card-header">
-                    {{ $product->name }}
+                    <?php echo e($product->name); ?>
+
                 </div>
                 <div class="card-body">
-                    <div id="product{{ preg_replace('/\s+/', '', $product->name) }}" class="carousel slide"
+                    <div id="product<?php echo e(preg_replace('/\s+/', '', $product->name)); ?>" class="carousel slide"
                         data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="spinner spinner-grow text-dark mx-auto my-auto" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                             <div class="carousel-item active">
-                                <img src="{{ $product->first_photo_url }}" class="imgSlider d-block w-100"
+                                <img src="<?php echo e($product->first_photo_url); ?>" class="imgSlider d-block w-100"
                                     alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button"
-                            data-bs-target="#product{{ preg_replace('/\s+/', '', $product->name) }}"
+                            data-bs-target="#product<?php echo e(preg_replace('/\s+/', '', $product->name)); ?>"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button"
-                            data-bs-target="#product{{ preg_replace('/\s+/', '', $product->name) }}"
+                            data-bs-target="#product<?php echo e(preg_replace('/\s+/', '', $product->name)); ?>"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
@@ -130,17 +131,18 @@
                 <div class="card-footer">
                     <div>
                         <label>
-                            {{ number_format($product->price, 2) }}
+                            <?php echo e(number_format($product->price, 2)); ?>
+
                         </label>
                     </div>
                     <div class="d-flex justify-content-end">
                             <div class="">
-                                <button onclick="configPaymentForm('{{ csrf_token() }}', {{ $product->id }}, '{{ $product->name }}', {{ $product->price }})" class="transparent", data-bs-toggle="modal" data-bs-target="#paymentModal">
+                                <button onclick="configPaymentForm('<?php echo e(csrf_token()); ?>', <?php echo e($product->id); ?>, '<?php echo e($product->name); ?>', <?php echo e($product->price); ?>)" class="transparent", data-bs-toggle="modal" data-bs-target="#paymentModal">
                                     <i class="far fa-credit-card text-light"></i>
                                 </button>
                             </div>
                             <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#amountProductModal" class="transparent" onclick="setProduct({{ $product->id }}, '{{ $product->name }}', {{ $product->price }})">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#amountProductModal" class="transparent" onclick="setProduct(<?php echo e($product->id); ?>, '<?php echo e($product->name); ?>', <?php echo e($product->price); ?>)">
                                     <i class="fas fa-cart-plus text-light"></i>
                                 </button>
                             </div>
@@ -148,7 +150,7 @@
                 </div>
             </div>
 
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <div class="listControllers">
             <button onclick="slide('left')" class="btn-lg scrollController rounded-circle left"><i class="fas fa-arrow-left"></i></button>
             <button onclick="slide('right')" class="btn-lg scrollController rounded-circle right"><i class="fas fa-arrow-right"></i></button>
@@ -156,8 +158,8 @@
 
     </div>
 
-    @include('components.amountToCart')
-    @include('components.paymentModal')
+    <?php echo $__env->make('components.amountToCart', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('components.paymentModal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <footer class="text-light">
         <button class="btn-lg scrollController rounded-circle goTop" onclick="window.scrollTo(0,0);"><i class="fas fa-arrow-up"></i></button>
@@ -211,3 +213,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\Users\joabe\Desktop\OnStyle\resources\views/products.blade.php ENDPATH**/ ?>

@@ -61,7 +61,7 @@
 
 
     <div id="welcomeText" class="d-flex flex-column centered-div center-components beauty-font">
-        <p class="title">Bem Vindo à Aline's Store</p>
+        <p class="title">Bem Vindo à OnStyle</p>
         <p class="description">O lugar certo para renovar seu guarda-roupa!</p>
 
         <div class="mt-5 align-self-center">
@@ -92,7 +92,7 @@
             <div class="additional-info ms-auto mt-auto d-flex flex-row">
                 <div class="contacts text-light d-flex flex-column justify-content-center">
                     <p>(00) 90000-0000</p>
-                    <p>aline@gmail.com</p>
+                    <p>adm@gmail.com</p>
                 </div>
                 <div>
                     <div class="personal-media">
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div class="author beauty-font">
-                Joabe Wick, 2021
+                nixs-dev, 2021
             </div>
         </div>
     </footer>

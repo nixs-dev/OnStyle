@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['checkIsAdmin'])->group(function () {
+// 'checkIsAdmin'
+
+Route::middleware([])->group(function () {
     Route::get('/private/getAll', [AdmController::class, 'getAllFromDatabase']);
 
 	Route::post('/private/addProduct', [AdmController::class, 'addToDatabase']);
